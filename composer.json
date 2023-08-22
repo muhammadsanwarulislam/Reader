@@ -17,6 +17,9 @@
             "Centerpoint\\Reader\\Repository\\": "src/Repositories/"
         }
     },
+    "scripts": {
+        "setup": "php -r \"require 'src/Setup.php'; Centerpoint\\Reader\\Setup::run();\""
+    },
     "extra": {
         "laravel": {
             "providers": [
