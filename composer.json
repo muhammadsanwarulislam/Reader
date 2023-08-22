@@ -17,6 +17,11 @@
             "Centerpoint\\Reader\\Repository\\": "src/Repositories/"
         }
     },
+    "scripts": {
+        "post-install-cmd": [
+            "Centerpoint\\Reader\\ReaderServiceProvider::postInstall"
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": [
