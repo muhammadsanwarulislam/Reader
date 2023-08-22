@@ -13,6 +13,7 @@ class Setup
         // echo "You entered: $input\n";
         $composer = $event->getComposer();
         var_dump($composer);
+        die();
     }
 }
 
