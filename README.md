@@ -13,3 +13,12 @@ Latest Laravel versions have auto dicovery and automatically add service provide
 ```
 Centerpoint\Reader\ReaderServiceProvider::class
 ```
+Add those in ```.env``` file
+```
+DB_CONNECTION=databaseconnectionname
+DB_HOST=your_host //127.0.0.1
+DB_PORT=your_port //3306
+DB_DATABASE=your_database // admindatabase
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
