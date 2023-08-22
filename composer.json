@@ -1,0 +1,27 @@
+{
+    "name": "centerpoint/reader",
+    "description": "This package will help you to build a collection from different database of your project",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Sanwarul Islam",
+            "email": "muhammad.sanwarul94@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Centerpoint\\Reader\\": "src/",
+            "Centerpoint\\Reader\\Repository\\": "src/Repositories/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Centerpoint\\Reader\\ReaderServiceProvider"
+            ]
+        }
+    }
+}
