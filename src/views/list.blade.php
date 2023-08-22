@@ -11,14 +11,14 @@
         <th width="20%">Change Time</th>
     </thead>
     <tbody>
-        @foreach ($audit_logs as $au)
+        @foreach ($results as $result)
         <tr>
-            <th scope="row">{{$au->id}}</th>
-            <td>{{$au->domain_id}}</td>
-            <td>{{$au->name}}</td>
-            <td>{{$au->subdomain}}</td>
-            <td>{{$au->changes}}</td>
-            <td>{{$au->change_time}}</td>
+            <th scope="row">{{$result->id}}</th>
+            <td>{{$result->domain_id}}</td>
+            <td>{{$result->name}}</td>
+            <td>{{$result->subdomain}}</td>
+            <td>{{$result->changes}}</td>
+            <td>{{$result->change_time}}</td>
         </tr>
         @endforeach
 

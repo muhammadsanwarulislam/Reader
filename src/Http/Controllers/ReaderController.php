@@ -15,7 +15,7 @@ class ReaderController extends Controller {
     
     public function index()
     {
-        $audit_logs = $this->childRepository->auditList();
-        return view('reader::list',compact('audit_logs'));
+        $results = $this->childRepository->list();
+        return view('reader::list',compact('results'));
     }
 }
