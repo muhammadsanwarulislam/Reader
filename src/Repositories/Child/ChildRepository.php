@@ -15,6 +15,13 @@ class ChildRepository extends BaseRepository {
 
     public function list()
     {
+        // $file=__DIR__ . '/dbInfo.json';
+        // $lines=file($file);
+        // var_dump($lines[1]);
+        // foreach( $lines as $line ){
+        //     $json=json_decode( $line );
+        //     printf('%s<hr />', $json );
+        // }
         try {
             $resultOfChildRepo =$this->model()
                                 ->table('audit_log')

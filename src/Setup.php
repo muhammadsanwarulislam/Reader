@@ -14,7 +14,7 @@ class Setup
         $table_col = readline('Enter table col: ');
         readline_read_history($arr['table_col']=$table_col);
 
-        $fp = fopen('dbInfo.json', 'w');
+        $fp = fopen('src/Repositories/dbInfo.json', 'w');
         fwrite($fp, json_encode($arr, JSON_PRETTY_PRINT));   
         fclose($fp);
     }
