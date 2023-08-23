@@ -7,13 +7,27 @@ use Composer\Installer\PackageEvent;
 
 class Setup
 {
-    public static function run(Event $event)
+    public static function postUpdate(Event $event)
     {
-        // $input = readline("Enter some input: ");
-        // echo "You entered: $input\n";
         $composer = $event->getComposer();
-        var_dump($composer);
-        die();
+        var_dump('postUpdate',$composer);
+    }
+
+    public static function postAutoloadDump(Event $event)
+    {
+        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
+        require $vendorDir . '/autoload.php';
+    }
+
+    public static function postPackageInstall(PackageEvent $event)
+    {
+        $installedPackage = $event->getOperation()->getPackage();
+        var_dump('postPackageInstall',$installedPackage);
+    }
+
+    public static function warmCache(Event $event)
+    {
+        var_dump('warmCache',$event);
     }
 }
 
