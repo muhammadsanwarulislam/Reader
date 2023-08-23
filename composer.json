@@ -18,16 +18,8 @@
         }
     },
     "scripts": {
-        "post-update-cmd": "Centerpoint\\Reader::postUpdate",
-        "post-package-install": [
-            "Centerpoint\\Reader::postPackageInstall"
-        ],
-        "post-install-cmd": [
-            "Centerpoint\\Reader::warmCache",
-            "phpunit -c app/"
-        ],
-        "post-autoload-dump": [
-            "Centerpoint\\Reader::postAutoloadDump"
+        "queryGenerate": [
+            "Centerpoint\\Reader\\Setup::dbQuerySetup"
         ]
     },
     "extra": {

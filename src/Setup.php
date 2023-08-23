@@ -2,32 +2,21 @@
 
 namespace Centerpoint\Reader;
 
-use Composer\Script\Event;
-use Composer\Installer\PackageEvent;
 
 class Setup
 {
-    public static function postUpdate(Event $event)
+    public static function dbQuerySetup()
     {
-        $composer = $event->getComposer();
-        var_dump('postUpdate',$composer);
-    }
+        $arr = [];
+        $table_name = readline('Enter table name: ');
+        readline_read_history($arr['table_name']=$table_name);
 
-    public static function postAutoloadDump(Event $event)
-    {
-        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
-        require $vendorDir . '/autoload.php';
-    }
+        $table_col = readline('Enter table col: ');
+        readline_read_history($arr['table_col']=$table_col);
 
-    public static function postPackageInstall(PackageEvent $event)
-    {
-        $installedPackage = $event->getOperation()->getPackage();
-        var_dump('postPackageInstall',$installedPackage);
-    }
-
-    public static function warmCache(Event $event)
-    {
-        var_dump('warmCache',$event);
+        $fp = fopen('dbInfo.json', 'w');
+        fwrite($fp, json_encode($arr, JSON_PRETTY_PRINT));   
+        fclose($fp);
     }
 }
 
