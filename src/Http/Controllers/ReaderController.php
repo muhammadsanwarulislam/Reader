@@ -1,21 +1,22 @@
 <?php
 namespace Centerpoint\Reader\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Centerpoint\Reader\Repository\Child\ChildRepository;
+use Centerpoint\Reader\Repository\QueryGenerate\QueryGenerateRepository;
 
 class ReaderController extends Controller {
-    protected $childRepository;
+    protected $queryGenerateRepository;
 
-    function __construct(ChildRepository $childRepository)
+    function __construct(QueryGenerateRepository $queryGenerateRepository)
     {
-        $this->childRepository   =  $childRepository;
+        $this->queryGenerateRepository   =  $queryGenerateRepository;
     }
     
     public function index()
     {
-        $results = $this->childRepository->list();
-        return view('reader::list',compact('results'));
+        $colms      = $this->queryGenerateRepository->tableName()['tableCols'];
+        $results    = $this->queryGenerateRepository->list();
+        
+        return view('reader::list',compact('colms','results'));
     }
 }
