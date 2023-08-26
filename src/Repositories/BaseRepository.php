@@ -21,13 +21,13 @@ Abstract class BaseRepository {
             $tableOrderType             =   $data['table_data_order_type'];
             $take                       =   $data['table_data_retrive_amount'];
             $join                       =   $data['join'];
-            $parent_table_name          =   $data['parent_table_name'];
-            $parent_table_col           =   $data['parent_table_col'];
-            $join_table_name            =   $data['join_table_name'];    
-            $join_table_col             =   $data['join_table_col'];
-            $join_table_col_name        =   $data['join_table_col_name'];
-            $selectStatementParentTable =   $this->selectStatementParentTable($data['parent_table_name'], explode(', ', $data['table_col']));
-            $selectStatementJoinTable   =   $this->selectStatementJoinTable($data['join_table_name'], explode(', ', $data['join_table_col_name']));
+            $parent_table_name          =   $data['parent_table_name'] ?? '';
+            $parent_table_col           =   $data['parent_table_col'] ?? '';
+            $join_table_name            =   $data['join_table_name'] ?? '';    
+            $join_table_col             =   $data['join_table_col'] ?? '';
+            $join_table_col_name        =   $data['join_table_col_name'] ?? '';
+            $selectStatementParentTable =   $this->selectStatementParentTable($data['parent_table_name'] ?? '', explode(', ', $data['table_col']) ?? '');
+            $selectStatementJoinTable   =   $this->selectStatementJoinTable($data['join_table_name'] ?? '', explode(', ', $data['join_table_col_name'] ?? ''));
 
         } else {
             echo "Invalid JSON data.";
@@ -78,10 +78,15 @@ Abstract class BaseRepository {
 
     public function mergeColms()
     {
-        $parentTableColms = $this->tableProperties()['tableCols'];
-        $joinTableColms = explode(', ', $this->tableProperties()['join_table_col_name']);
-        $mergeColms = array_merge($parentTableColms,$joinTableColms);
-        return $mergeColms;
+        if($this->tableProperties()['join'] == 'yes') {
+            $parentTableColms = $this->tableProperties()['tableCols'];
+            $joinTableColms = explode(', ', $this->tableProperties()['join_table_col_name']);
+            $mergeColms = array_merge($parentTableColms,$joinTableColms);
+            return $mergeColms;
+        }else {
+            $parentTableColms = $this->tableProperties()['tableCols'];
+            return $parentTableColms;
+        }
     }
 
 }

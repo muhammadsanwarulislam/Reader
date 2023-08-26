@@ -16,7 +16,7 @@ class ReaderController extends Controller {
     {
         $mergeColms = $this->queryGenerateRepository->mergeColms();
         $results    = $this->queryGenerateRepository->list();
-
+        
         return view('reader::list',compact('mergeColms','results'));
     }
 }
