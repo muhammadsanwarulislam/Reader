@@ -33,5 +33,19 @@ Set those in ```config/database.php``` file
             'password'      => env('DB_PASSWORD', ''),
             'charset'       => 'utf8',
             'collation'     => 'utf8_unicode_ci',
-        ],
+],
 ```
+After install the package let's configure your db setup, that's menus what type of relation do you want to build for a particular db.
+Execute ```composer run-script queryGenerate```
+
+This will ask you some question like
+
+```"What's the table name(like users): "```
+You have to enter the table name.
+
+```"What's the table columns(like id, name, email): "```
+Enter the table columns with exact same as like the example.
+
+
+
+
