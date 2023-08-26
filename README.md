@@ -1,4 +1,4 @@
-# reader
+# Reader
 Laravel package for Easy to get report list from different database.
 
 # About
