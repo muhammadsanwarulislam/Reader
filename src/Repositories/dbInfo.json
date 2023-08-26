@@ -9,5 +9,5 @@
     "parent_table_col": "domain_id",
     "join_table_name": "npf_domains",
     "join_table_col": "id",
-    "join_table_col_name": "subdomain"
+    "join_table_col_name": "subdomain, created, sitename_bn"
 }

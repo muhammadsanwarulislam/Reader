@@ -14,9 +14,9 @@ class ReaderController extends Controller {
     
     public function index()
     {
-        $colms      = $this->queryGenerateRepository->tableName()['tableCols'];
+        $mergeColms = $this->queryGenerateRepository->mergeColms();
         $results    = $this->queryGenerateRepository->list();
-        
-        return view('reader::list',compact('colms','results'));
+
+        return view('reader::list',compact('mergeColms','results'));
     }
 }

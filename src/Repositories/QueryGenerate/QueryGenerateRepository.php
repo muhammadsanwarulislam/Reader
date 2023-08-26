@@ -15,8 +15,8 @@ class QueryGenerateRepository extends BaseRepository {
 
     public function selectStatementForJoinQuery()
     {
-        $parentTableCols = new Collection($this->tableName()['selectStatementParentTable']);
-        $joinTableCols = new Collection($this->tableName()['selectStatementJoinTable']);
+        $parentTableCols = new Collection($this->tableProperties()['selectStatementParentTable']);
+        $joinTableCols = new Collection($this->tableProperties()['selectStatementJoinTable']);
 
         $mergedCollection = $parentTableCols->merge($joinTableCols);
         $mergedCollectionToArray = $mergedCollection->toArray();
@@ -25,15 +25,15 @@ class QueryGenerateRepository extends BaseRepository {
 
     public function list()
     {
-        switch ($this->tableName()['join'] == 'yes') {
+        switch ($this->tableProperties()['join'] == 'yes') {
             case 'yes':
                 try {
                     $resultOfChildRepo = $this->model()
-                                    ->table($this->tableName()['parent_table_name'])
+                                    ->table($this->tableProperties()['parent_table_name'])
                                     ->select($this->selectStatementForJoinQuery())
-                                    ->join($this->tableName()['join_table_name'],$this->tableName()['parent_table_name'].'.'.$this->tableName()['parent_table_col'],'=',$this->tableName()['join_table_name'].'.'.$this->tableName()['join_table_col'])
-                                    ->take($this->tableName()['take'])
-                                    ->orderBy($this->tableName()['tableOrderBy'],$this->tableName()['tableOrderType'])
+                                    ->join($this->tableProperties()['join_table_name'],$this->tableProperties()['parent_table_name'].'.'.$this->tableProperties()['parent_table_col'],'=',$this->tableProperties()['join_table_name'].'.'.$this->tableProperties()['join_table_col'])
+                                    ->take($this->tableProperties()['take'])
+                                    ->orderBy($this->tableProperties()['tableOrderBy'],$this->tableProperties()['tableOrderType'])
                                     ->get();
                 } catch (\Throwable $th) {
                     echo $th->getMessage();
@@ -43,10 +43,10 @@ class QueryGenerateRepository extends BaseRepository {
             default:
                 try {
                     $resultOfChildRepo = $this->model()
-                                ->table($this->tableName()['tableName'])
-                                ->select($this->tableName()['tableCols'])
-                                ->take($this->tableName()['take'])
-                                ->orderBy($this->tableName()['tableOrderBy'],$this->tableName()['tableOrderType'])
+                                ->table($this->tableProperties()['tableName'])
+                                ->select($this->tableProperties()['tableCols'])
+                                ->take($this->tableProperties()['take'])
+                                ->orderBy($this->tableProperties()['tableOrderBy'],$this->tableProperties()['tableOrderType'])
                                 ->get();
                 } catch (\Throwable $th) {
                     echo $th->getMessage();

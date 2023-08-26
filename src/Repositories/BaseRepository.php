@@ -8,7 +8,7 @@ Abstract class BaseRepository {
 
     abstract function model();
 
-    public function tableName()
+    public function tableProperties()
     {
         $file       = __DIR__ . '/dbInfo.json';
         $jsonData   = file_get_contents($file);
@@ -74,6 +74,14 @@ Abstract class BaseRepository {
         }, $prefixedTheJoinTableName);
 
         return $removeDoubleQuotation;
+    }
+
+    public function mergeColms()
+    {
+        $parentTableColms = $this->tableProperties()['tableCols'];
+        $joinTableColms = explode(', ', $this->tableProperties()['join_table_col_name']);
+        $mergeColms = array_merge($parentTableColms,$joinTableColms);
+        return $mergeColms;
     }
 
 }

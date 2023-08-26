@@ -2,10 +2,9 @@
 @section('content')
     <table id="example" class="display" style="width:100%;">
         <thead>
-            @foreach ($colms as $col)
+            @foreach ($mergeColms as $col)
                 <th>{{ $col }}</th>
             @endforeach
-            <th>Domain</th>
         </thead>
         <tbody>
             @foreach ($results as $key => $value)
