@@ -46,8 +46,16 @@ This will ask you some question like
 You have to enter the table name.
 
 ```"What's the table columns(like id, name, email): "```
+
 Enter the table columns with exact same as like the example.
 
+```"What's will the 'orderBy' table column(like id): "```
 
+Enter the column name according to your table, this will help you to retrieve data from the table according to the table field or column name.
 
+```"What's will be the 'oderBy' type(like desc or asc): "```
+Enter order type properly.
+
+```"How many data you want to retrive(like 100): "```
+Enter the amount of data you want to retrieve
 
