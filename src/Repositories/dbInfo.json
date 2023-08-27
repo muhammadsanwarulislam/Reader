@@ -1,6 +1,6 @@
 {
-    "table_name": "npf_domains",
-    "table_col": "id, subdomain, sitename_bn, sitename_en",
+    "table_name": "audit_log",
+    "table_col": "id, changes, change_time",
     "table_data_order_by": "id",
     "table_data_order_type": "desc",
     "table_data_retrive_amount": "1000",
