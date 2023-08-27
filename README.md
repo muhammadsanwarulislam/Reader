@@ -41,9 +41,11 @@ Execute ```composer run-script queryGenerate```
 This will ask you some question like
 
 ```"What's the table name(like users): "```
+
 You have to enter the table name.
 
 ```"What's the table columns(like id, name, email): "```
+
 Enter the table columns with exact same as like the example.
 
 
