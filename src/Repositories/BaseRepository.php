@@ -21,31 +21,29 @@ Abstract class BaseRepository {
             $tableOrderType             =   $data['table_data_order_type'];
             $take                       =   $data['table_data_retrive_amount'];
             $join                       =   $data['join'];
-            $parent_table_name          =   $data['parent_table_name'] ?? '';
-            $parent_table_col           =   $data['parent_table_col'] ?? '';
-            $join_table_name            =   $data['join_table_name'] ?? '';    
-            $join_table_col             =   $data['join_table_col'] ?? '';
-            $join_table_col_name        =   $data['join_table_col_name'] ?? '';
-            $selectStatementParentTable =   $this->selectStatementParentTable($data['parent_table_name'] ?? '', explode(', ', $data['table_col']) ?? '');
+            $parentTableCol             =   $data['parent_table_col'] ?? '';
+            $joinTableName              =   $data['join_table_name'] ?? '';    
+            $joinTableCol               =   $data['join_table_col'] ?? '';
+            $joinTableColName           =   $data['join_table_col_name'] ?? '';
+            $selectStatementParentTable =   $this->selectStatementParentTable($data['table_name'] ?? '', explode(', ', $data['table_col']) ?? '');
             $selectStatementJoinTable   =   $this->selectStatementJoinTable($data['join_table_name'] ?? '', explode(', ', $data['join_table_col_name'] ?? ''));
 
         } else {
             echo "Invalid JSON data.";
         }
         return [
-            'tableName'             =>  $tableName, 
-            'tableCols'             =>  $tableCols,
-            'tableOrderBy'          =>  $tableOrderBy,
-            'tableOrderType'        =>  $tableOrderType,
-            'take'                  =>  $take,
-            'join'                  =>  $join,
-            'parent_table_name'     => $parent_table_name,
-            'parent_table_col'      => $parent_table_col,
-            'join_table_name'       =>  $join_table_name,
-            'join_table_col'        => $join_table_col,
-            'join_table_col_name'   => $join_table_col_name,
-            'selectStatementParentTable'   =>   $selectStatementParentTable,
-            'selectStatementJoinTable'      =>  $selectStatementJoinTable,
+            'tableName'                         =>  $tableName, 
+            'tableCols'                         =>  $tableCols,
+            'tableOrderBy'                      =>  $tableOrderBy,
+            'tableOrderType'                    =>  $tableOrderType,
+            'take'                              =>  $take,
+            'join'                              =>  $join,
+            'parentTableCol'                    => $parentTableCol,
+            'joinTableName'                     =>  $joinTableName,
+            'joinTableCol'                      => $joinTableCol,
+            'joinTableColName'                  => $joinTableColName,
+            'selectStatementParentTable'        =>   $selectStatementParentTable,
+            'selectStatementJoinTable'          =>  $selectStatementJoinTable,
 
         ];
     }
@@ -80,7 +78,7 @@ Abstract class BaseRepository {
     {
         if($this->tableProperties()['join'] == 'yes') {
             $parentTableColms = $this->tableProperties()['tableCols'];
-            $joinTableColms = explode(', ', $this->tableProperties()['join_table_col_name']);
+            $joinTableColms = explode(', ', $this->tableProperties()['joinTableColName']);
             $mergeColms = array_merge($parentTableColms,$joinTableColms);
             return $mergeColms;
         }else {

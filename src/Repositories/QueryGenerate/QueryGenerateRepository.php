@@ -29,9 +29,9 @@ class QueryGenerateRepository extends BaseRepository {
             case 'yes':
                 try {
                     $resultOfChildRepo = $this->model()
-                                    ->table($this->tableProperties()['parent_table_name'])
+                                    ->table($this->tableProperties()['tableName'])
                                     ->select($this->selectStatementForJoinQuery())
-                                    ->join($this->tableProperties()['join_table_name'],$this->tableProperties()['parent_table_name'].'.'.$this->tableProperties()['parent_table_col'],'=',$this->tableProperties()['join_table_name'].'.'.$this->tableProperties()['join_table_col'])
+                                    ->join($this->tableProperties()['joinTableName'],$this->tableProperties()['tableName'].'.'.$this->tableProperties()['parentTableCol'],'=',$this->tableProperties()['joinTableName'].'.'.$this->tableProperties()['joinTableCol'])
                                     ->take($this->tableProperties()['take'])
                                     ->orderBy($this->tableProperties()['tableOrderBy'],$this->tableProperties()['tableOrderType'])
                                     ->get();
