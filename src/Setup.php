@@ -45,7 +45,7 @@ class Setup
             readline_read_history($arr['join_table_col_name']=$join_table_col_name);
         }
 
-        $fp = fopen('src/Repositories/dbInfo.json', 'w');
+        $fp = fopen(__DIR__.'/DbInfo/dbInfo.json', 'w');
         fwrite($fp, json_encode($arr, JSON_PRETTY_PRINT));   
         fclose($fp);
     }

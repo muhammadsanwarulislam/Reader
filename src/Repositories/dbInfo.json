@@ -1,8 +1,0 @@
-{
-    "table_name": "audit_log",
-    "table_col": "id, changes, change_time",
-    "table_data_order_by": "id",
-    "table_data_order_type": "desc",
-    "table_data_retrive_amount": "1000",
-    "join": "no"
-}

@@ -10,7 +10,7 @@ Abstract class BaseRepository {
 
     public function tableProperties()
     {
-        $file       = __DIR__ . '/dbInfo.json';
+        $file       = __DIR__ . '../../DbInfo/dbInfo.json';
         $jsonData   = file_get_contents($file);
         $data       = json_decode($jsonData, true); 
 
