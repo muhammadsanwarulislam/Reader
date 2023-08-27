@@ -54,8 +54,14 @@ Enter the table columns with exact same as like the example.
 Enter the column name according to your table, this will help you to retrieve data from the table according to the table field or column name.
 
 ```"What's will be the 'oderBy' type(like desc or asc): "```
+
 Enter order type properly.
 
 ```"How many data you want to retrive(like 100): "```
+
 Enter the amount of data you want to retrieve
+
+```"Do you want joining(like yes or no): "```
+
+If you enter ```yes``` then it will ask some more question to build relation according to your entry value. If you enter ```no``` then it will terminated and this ```127.0.0.1:8000/reader``` link will show list of data.
 
