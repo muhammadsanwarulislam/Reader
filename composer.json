@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Centerpoint\\Reader\\ReaderServiceProvider"
+                "Centerpoint\\Reader\\Provider\\ReaderServiceProvider"
             ]
         }
     }
