@@ -29,7 +29,7 @@ Abstract class BaseRepository {
             $selectStatementJoinTable   =   $this->selectStatementJoinTable($data['join_table_name'] ?? '', explode(', ', $data['join_table_col_name'] ?? ''));
 
         } else {
-            echo "Invalid JSON data.";
+            echo "Please define relation to get the data from the database.";
         }
         return [
             'tableName'                         =>  $tableName, 

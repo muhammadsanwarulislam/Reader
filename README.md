@@ -65,3 +65,22 @@ Enter the amount of data you want to retrieve
 
 If you enter ```yes``` then it will ask some more question to build relation according to your entry value. If you enter ```no``` then it will terminated and this ```127.0.0.1:8000/reader``` link will show list of data.
 
+If you enter ```yes``` then enter the parent table name.
+```"Enter parent table name(like users):"```
+
+Enter the column name which is the primary key of the table. Like if we define ```users``` table and hold ```domain_id``` column which is primary key.
+
+```"Enter table col name(like id from user table) which will be the PRIMARY KEY: "```
+
+Enter the join table name.
+
+```"What's the joining table name(like domain): "```
+
+Enter the column name which is the foreign key of the table. Like we define ```domains``` table and ```id``` column is the foreign key.
+
+```"What's joining table col name(like domain_id) which will be the FOREIGN KEY: "```
+
+Enter the column name for the joining table.
+
+```"What's your excepted col name(like subdomain) that you retrive from the joining table: "```
+

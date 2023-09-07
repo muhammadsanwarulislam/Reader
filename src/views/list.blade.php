@@ -7,17 +7,23 @@
             @endforeach
         </thead>
         <tbody>
-            @foreach ($results as $key => $value)
+            @if (!empty($result))
                 <tr>
-                    @if (is_object($value) || is_array($value))
-                        @foreach ($value as $property => $propertyValue)
-                            <th>{{ $propertyValue }}</th>
-                        @endforeach
-                    @else
-                        <th>{{ $value }}</th>
-                    @endif
+                    <th>Please define relation to get the data from the database</th>
                 </tr>
-            @endforeach
+            @else
+                @foreach ($results as $key => $value)
+                    <tr>
+                        @if (is_object($value) || is_array($value))
+                            @foreach ($value as $property => $propertyValue)
+                                <th>{{ $propertyValue }}</th>
+                            @endforeach
+                        @else
+                            <th>{{ $value }}</th>
+                        @endif
+                    </tr>
+                @endforeach
+            @endif
 
         </tbody>
     </table>
