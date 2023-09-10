@@ -68,17 +68,17 @@ If you enter ```yes``` then it will ask some more question to build relation acc
 If you enter ```yes``` then enter the parent table name.
 ```"Enter parent table name(like users):"```
 
-Enter the column name which is the primary key of the table. Like if we define ```users``` table and hold ```domain_id``` column which is primary key.
+Enter the column name which is the foreign key of the table. Like if you define ```users``` table and hold ```domain_id``` column which is foreign key.
 
-```"Enter table col name(like id from user table) which will be the PRIMARY KEY: "```
+```"Enter table col name(like id from user table) which will be the FOREIGN KEY: "```
 
 Enter the join table name.
 
 ```"What's the joining table name(like domain): "```
 
-Enter the column name which is the foreign key of the table. Like we define ```domains``` table and ```id``` column is the foreign key.
+Enter the column name which is the references the ```id``` in the table. Like we define ```domains``` table and ```id``` column is the references id.
 
-```"What's joining table col name(like domain_id) which will be the FOREIGN KEY: "```
+```"What's joining table col name(like domain_id) which will be the REFERENCES ID: "```
 
 Enter the column name for the joining table.
 
